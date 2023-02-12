@@ -98,7 +98,7 @@ function drawHeart(posicionCorazones) {
         clearInterval(intervalCorazones)
         setTimeout(() => {
             lastInterval = setInterval(final, 50)    
-        }, 5000);
+        }, 3000);
     }
 }
 
