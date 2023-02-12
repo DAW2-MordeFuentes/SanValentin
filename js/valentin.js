@@ -58,7 +58,7 @@ function dibujar() {
     // rayos()
 
     // for (let i = 0; i < 5; i++) {
-        intervalCorazones = setInterval(drawHeart, 1000, 0)
+        // intervalCorazones = setInterval(drawHeart, 1000, 0)
     // }
 
     // lastInterval = setInterval(final, 50)
