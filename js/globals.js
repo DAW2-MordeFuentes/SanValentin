@@ -1,59 +1,57 @@
-let posFINAL = 0
-let limit = 0
+var duracionRayosGato = 5
 
+var posFINAL = 0
+var limit = 0
 
-let black = 'black'
-let white = 'white'
-
+var black = 'black'
+var white = 'white'
 
 // VAN
-let greyVan = '#a7bcbf'
-let orangeVan = '#f4c700'
-let greenVan = '#00b4b3'
+var greyVan = '#a7bcbf'
+var orangeVan = '#f4c700'
+var greenVan = '#00b4b3'
 
-let blue = '#61b8ee'
+var blue = '#61b8ee'
 
-let green1 = '#8ec416'
-let green2 = '#518000'
-let green3 = '#9eba00'
+var green1 = '#8ec416'
+var green2 = '#518000'
+var green3 = '#9eba00'
 
-let green4 = '#385006'
-let green5 = '#526a0c'
+var green4 = '#385006'
+var green5 = '#526a0c'
 
-let green6 = '#5e810d'
-let green7 = '#779e11'
+var green6 = '#5e810d'
+var green7 = '#779e11'
 
-let green8 = '#446409'
-let green9 = '#63840f'
+var green8 = '#446409'
+var green9 = '#63840f'
 
-let brown = '#694C41'
+var brown = '#694C41'
 
-let red = '#96213e'
+var red = '#96213e'
 
-let rosa = '#c23256'
+var rosa = '#c23256'
 
 // Globo
-let gBlue1 = '#1f356f'
-let gBlue2 = '#0392d7'
-let gBlue3 = '#85bedc'
-let gBlue4 = '#dcecf9'
-let gBrown = '#b0673c'
+var gBlue1 = '#1f356f'
+var gBlue2 = '#0392d7'
+var gBlue3 = '#85bedc'
+var gBlue4 = '#dcecf9'
+var gBrown = '#b0673c'
 
-let sOrange = '#d744e0'
-
-
+var sOrange = '#d744e0'
 
 // UNITS
-let w = 1000
-let h = 700
-let unit = 10
+var w = 1000
+var h = 700
+var unit = 10
 
 //Acuña-rayo
-let azultormenta = '#102c54';
+var azultormenta = '#102c54';
 //let minRayo=unit*10;
-let minRayo = 0;
-let maxRayo = 0;
-let finalNube = unit * 2;
+var minRayo = 0;
+var maxRayo = 0;
+var finalNube = unit * 2;
 
 //artalMiau
 var michoNegroCola = "#392524";
@@ -98,4 +96,26 @@ function rejilla() {
 
 }
 
-let colors = ["#f33e75", "#f294ae", "#b8439b", "#ef582e", "#47c0c8", "#f12b33"]
+// const colors = ["#f33e75", "#f294ae", "#b8439b", "#ef582e", "#47c0c8", "#f12b33"]
+const colors = ["#B9F3E4", "#EA8FEA", "#D61355", "#F94A29", "#30E3DF", "#FD8A8A", "#9EA1D4", 
+                "#FF9E9E", "#FF6D28", "#00F5FF", "#F94892", "#89CFFD", "#B2A4FF", "#F94C66", 
+                "#53BF9D", "#BD4291", "#293462", "#F24C4C", "#FF6FB5", "#AB46D2", "#B4FF9F", 
+                "#FF6B6B", "#9ADCFF", "#95DAC1", "#6F69AC", "#FF4848", "#AA2EE6", "#890596"]
+
+//const phrases = ['Que te deje \ncrear un server de minecraft', 'Amor = ESPAÑA', 'Amistad', 'Cariño ', 
+                //'El amor es confianza y respeto', 'Lealtad ', ' Preocupación', 'Amarse', 'Sentirse comod@ con la otra persona', 
+                //'Quererse con el corazón', 'Que no sea toxic@']
+
+const phrases = ['Que te deje crear un server de minecraft']
+
+
+var acX = new Array();
+var acY = new Array();
+var aRadius = new Array();
+var aNumP = new Array();
+var acI = new Array();
+
+var aPaArriba = new Array();
+var aAlturaCartel = new Array();
+var aLadoDerecho = new Array();
+

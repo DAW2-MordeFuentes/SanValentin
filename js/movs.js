@@ -12,6 +12,8 @@ let vGlobo = 50;
 let timeGlobo, timeFondo, lluviaGaytan, lluvia2Gaytan;
 
 function drawTractor() {
+    // txell... si no, si la pantalla es muy alta se ve como medio volando...
+    yTractor = - unit;
     fondo();
     balloon(xTractor - unit * 13, yGlobo);
     remolque(xTractor, yTractor);
@@ -53,30 +55,13 @@ function drawFondo() {
     remolque(xTractor, yTractor);
     tractor(xTractor, yTractor);
     balloon(xGlobo, yGlobo);
-    // tractor()
-    // flowers()
-    // carteles()
 
     if (xGlobo -200 > posFINAL) {
-        console.log("LIMIT " + limit)
-        console.log(posFINAL)
+        // console.log("LIMIT " + limit)
+        // console.log(posFINAL)
 
         clearInterval(timeFondo)
         tormenta()
-        /* lluviaGaytan = setInterval(() => {
-            posX2 += 0.00625 * unit;
-            posXX2 -= 0.0125 * unit;
-            delay++;
-            if (posX2 >= -1 * unit && posXX2 <= 6 * unit) {
-                // bolaBoleadora();
-                rain();
-                clearInterval(lluviaGaytan);
-                // rayos();
-            }
-        })
-        lluvia2Gaytan = setInterval(bolaBoleadora, 1);
-        // desaparece el globo
-        */
     }
     else {
         xGlobo += dxGlobo

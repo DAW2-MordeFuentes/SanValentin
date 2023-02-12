@@ -198,8 +198,10 @@ function tree1(posX) {
 }
 
 function tree1(posX) {
+    // Pararemos antes los arbolitos, para no tener que redibujarlos en la tormenta
 
-    for (posX = 0; posX < posFINAL + unit * 10; posX += 29 * unit) {
+    // for (posX = 0; posX < posFINAL + unit * 10; posX += 29 * unit) {
+    for (posX = 0; posX < posFINAL - unit*10; posX += 29 * unit) {
         //TREE 2
         ctx.fillStyle = brown;
         ctx.lineWidth = 10/40*unit;
@@ -266,11 +268,11 @@ function tree0(posX){
 function fondo() {
 
     ctx.fillStyle = grdSky
-    ctx.fillRect(0, 0, 10000, h);
+    ctx.fillRect(0, 0, posFINAL + 20*unit, h); // Si no, en el teléfono se ve mal
 
-    // suelo0(0)
-    // tree1();    
-    // suelo1(0)
+    suelo0(0)
+    tree1();    
+    suelo1(0)
     tree0();
     suelo3(0)
     suelo2(0)
@@ -280,4 +282,22 @@ function fondo() {
 
     drawCarteles()
     drawFlowers()
+}
+
+function fondoFINAL() {
+    // Para no estar ejecutando las nubes, las flores y los carteles sin parar
+
+    ctx.fillStyle = grdSky
+    ctx.fillRect(0, 0, posFINAL + 20*unit, h); // Si no, en el teléfono se ve mal
+
+    suelo0(0)
+    // tree1();    
+    suelo1(0)
+    // tree0();
+    suelo3(0)
+    suelo2(0)
+
+    // nubes()
+    // drawCarteles()
+    // drawFlowers()
 }

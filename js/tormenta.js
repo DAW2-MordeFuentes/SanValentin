@@ -64,11 +64,11 @@ function tormenta() {
 
             stoping = setInterval(function () {
                 tiempoRayos++;
-                console.log(tiempoRayos)
+                // console.log(tiempoRayos)
             }, 1000);
 
             clearInterval(lluvia);
-            clearInterval(boleadora);`´´´´´´´´´´´´´´´´´´´´´´´´´´´`
+            clearInterval(boleadora);
         }
     })
     boleadora = setInterval(bolaBoleadora, 1, false, "linea 74");
@@ -91,7 +91,7 @@ function rectangulo() {
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 function bolaBoleadora(fija, llamada) {
-    console.log("BOLABOLEADORA " + fija + " " + llamada)
+    // console.log("BOLABOLEADORA " + fija + " " + llamada)
     // rectangulo();
     fondo()
 
@@ -117,7 +117,8 @@ function bolaBoleadora(fija, llamada) {
         if(vete==1 && posX < limit - 120 * unit) {
             // console.log("VEEETEEE " + posX)
             clearInterval(ySeMarcho)
-            drawHearts(posChunga - 12*unit)
+            // drawHearts(posChunga - 12*unit)
+            setInterval(drawHeart, 1000, posChunga - 12*unit)
         }
 
         // console.log(posXX - posX)
@@ -126,7 +127,7 @@ function bolaBoleadora(fija, llamada) {
             direccion2 = 1;
         }
     } else {
-        console.log("bolaBoleadora FIIJAAAA " + posX)
+        // console.log("bolaBoleadora FIIJAAAA " + posX)
     }
 
     // BOLA A LA IZQUIERDA DEL TODO
@@ -1032,8 +1033,9 @@ function bolaBoleadora(fija, llamada) {
 
 
 function rain() {
-    canvas.style.top = 0;
-    canvas.style.zIndex = 1000;
+    // canvas.style.top = 0;
+    // canvas.style.zIndex = 1000;
+    
     var num = 0;
 
     const getRandomNumber = (min, max) =>
@@ -1113,7 +1115,7 @@ function rain() {
 }
 
 setTimeout(() => {
-    console.log("Y SE MARCHOOOOOOOOOOO")
+    // console.log("Y SE MARCHOOOOOOOOOOO")
     ySeMarcho = setInterval(bolaBoleadora, 1, false, "MARCHO")
 }, 60 * 1000)
 

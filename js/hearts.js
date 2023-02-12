@@ -6,7 +6,9 @@ function corazones(heartScale, colour, posX, x, y, phrase) {
     //'Ramas'
     ctx.beginPath()
     ctx.strokeStyle = "brown"
-    ctx.moveTo(((heartScale * (unit * 5) + x) + posX), (heartScale * (h - unit * 0)) + y)
+    // txell, la base más corta
+    // ctx.moveTo(((heartScale * (unit * 5) + x) + posX), (heartScale * (h - unit * 0)) + y)
+    ctx.moveTo(((heartScale * (unit * 5) + x) + posX), (heartScale * (h - unit * 5)) + y)
     ctx.lineTo(((heartScale * (unit * 5) + x) + posX), (heartScale * (h - unit * 10)) + y)
     ctx.lineWidth = (heartScale * (unit * 0.25))
     ctx.stroke()
@@ -26,6 +28,10 @@ function corazones(heartScale, colour, posX, x, y, phrase) {
     ctx.fill()
     ctx.closePath()
 
+    let cTextX = heartScale * (unit * 5) + x + posX
+    let cTextY = heartScale * (h - unit * 10.5) + y
+
+   
     //Líneas redondeadas
     ctx.lineCap = "round"
     ctx.lineWidth = (heartScale * (unit * 1.5))
@@ -47,6 +53,7 @@ function corazones(heartScale, colour, posX, x, y, phrase) {
 
     ctx.stroke()
     ctx.closePath()
+    
 
     //Escribir frase
     ctx.beginPath()
@@ -54,24 +61,32 @@ function corazones(heartScale, colour, posX, x, y, phrase) {
     var innerText = ""
     innerText = canvasId.innerHTML = phrase
     ctx.fillStyle = "white"
+    ctx.textAlign = 'center'
     ctx.font = "bold " + (heartScale * 20/40 * unit) + "px 'Century Gothic'"
-    ctx.fillText(innerText, ((heartScale * (unit * 4.25) + x) + posX), ((heartScale * (h - unit * 10.25)) + y))
+    // ctx.fillText(innerText, ((heartScale * (unit * 4.25) + x) + posX), ((heartScale * (h - unit * 10.25)) + y))
+    ctx.fillText(innerText, cTextX, cTextY)
     ctx.closePath()
 
     //grow()
 }
 
-function drawHearts(posicionCorazones) {
+let indexHeart = 0; 
+function drawHeart(posicionCorazones) {
     var positionX = posicionCorazones
+    indexHeart++;
     // Todas las llamadas...
-    for (let i = 0; i < 8; i++) {
+    // for (let i = 0; i < 20; i++) {
         var scale = Math.random() * 2 + 0.75
-        var x = Math.random() * (70 - 200)
+        // var scale = 2.75
+        // var x = Math.random() * (70 - 200)
         var y = Math.random() * (300 - 700)
+        // Math.random() * (max - min) + min;
+        var x = Math.random() * (unit*7 + unit*4) - unit*4
+        // var y = Math.random() * (-unit*4 - unit*10) - unit*10
         var randomColour = Math.round(Math.random() * 5)
         var randomPhrase = Math.round(Math.random() * 2)
-        corazones(scale, colors[randomColour], positionX, x, y, phrases[i])
-    }
+        corazones(scale, colors[randomColour], positionX, x, y, phrases[indexHeart])
+    // }
 }
 
 
@@ -108,3 +123,31 @@ function dibujar() {
 }
 window.onload = dibujar
 */
+
+
+function ajusteDeTexto(texto, x, y, maxWidth, alturaDeLinea){
+    // crea el array de las palabras del texto
+    let palabrasRy = texto.split(" ");
+    // inicia la variable var lineaDeTexto
+    let lineaDeTexto = "";
+    // un bucle for recorre todas las palabras
+            for(let i = 0; i < palabrasRy.length; i++) {
+            let testTexto = lineaDeTexto + palabrasRy[i] + " ";
+            // calcula la anchura del texto textWidth 
+            let textWidth = ctx.measureText(testTexto).width;
+            // si textWidth > maxWidth
+                    if (textWidth > maxWidth  && i > 0) {
+                    // escribe en el canvas la lineaDeTexto
+                    ctx.fillText(lineaDeTexto, x, y);
+                    // inicia otra lineaDeTexto         
+                    lineaDeTexto = palabrasRy[i]+ " " ;
+                    // incrementa el valor de la variable y 
+                    //donde empieza la nueva lineaDeTexto
+                    y += alturaDeLinea;
+                    }else {// de lo contrario,  si textWidth <= maxWidth 
+                    lineaDeTexto = testTexto;
+                    }
+            }// acaba el bucle for
+    // escribe en el canvas la última lineaDeTexto
+    ctx.fillText(lineaDeTexto, x, y);
+}

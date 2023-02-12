@@ -2,9 +2,9 @@
 var frasesMaravillosasDeLaSenoritaMeritxell = ['8', '6', '1', '2 ', '4', '5 ',];
 frasesMaravillosasDeLaSenoritaMeritxell = frasesMaravillosasDeLaSenoritaMeritxell.sort(function () { return Math.random() - 0.5 });
 
-colorFuera = 'grey';
-colorPalo = 'peru';
-colorDentro = 'grey';
+var colorFuera = 'grey';
+var colorPalo = '#773525'; // perú
+var colorDentro = 'grey';
 
 var maxAltura = 400
 var minAltura = 300

@@ -1,25 +1,16 @@
 var canvas = null
 var ctx = null
 
-var acX = new Array();
-var acY = new Array();
-var aRadius = new Array();
-var aNumP = new Array();
-var acI = new Array();
-
-var aPaArriba = new Array();
-var aAlturaCartel = new Array();
-var aLadoDerecho = new Array();
-
-var numFlowers = 140;
+var numFlowers = 100;
 var nCarteles = 8;
 
 var grdSky;
 
-var tiempoRayos = 0; 
-var stoping; 
+var tiempoRayos = 0;
+var stoping;
 
-const phrases = ['Que te deje crear un server de minecraft', 'Amor = ESPAÑA', 'Amistad', 'Cariño ', 'El amor es confianza y respeto', 'Lealtad ', ' Preocupación', 'Amarse', 'Sentirse comod@ con la otra persona', 'Quererse con el corazón', 'Que no sea toxic@']
+var lastInterval;
+
 
 function dibujar() {
 
@@ -54,7 +45,13 @@ function dibujar() {
     fondo()
 
     // ctx.translate(-1000, 0)
+    // rayos()
 
+    // for (let i = 0; i < 5; i++) {
+        // setInterval(drawHeart, 1000, 0)
+    // }
+
+    // lastInterval = setInterval(final, 50)
 }
 
 function inicializarFlores() {
@@ -65,8 +62,8 @@ function inicializarFlores() {
     let minY = h - unit * 5
 
     // define an array of colors
-    var colorArray = ["red", "blueviolet", "blue", "coral", "goldenrod", "greenyellow", "purple", "darkorange", "hotpink",
-        "maroon", "salmon", "white"];
+    // var colorArray = ["red", "blueviolet", "blue", "coral", "goldenrod", "greenyellow", "purple", "darkorange", "hotpink",
+    // "maroon", "salmon", "white"];
 
 
     for (let i = 0; i < numFlowers; i++) {
@@ -74,7 +71,7 @@ function inicializarFlores() {
         var centerY = Math.random() * maxY + minY
         var radius = Math.random() * 2 * unit + unit / 2
         var numPetals = Math.random() * 6 + 3
-        var colorIndex = Math.floor(Math.random() * colorArray.length);
+        var colorIndex = Math.floor(Math.random() * colors.length);
 
         acX.push(centerX)
         acY.push(centerY)
@@ -83,6 +80,7 @@ function inicializarFlores() {
         acI.push(colorIndex)
     }
 
+    // CARTELES
     maxAltura = 400 / 40 * unit
     minAltura = 300 / 40 * unit
     maxLado = 650 / 40 * unit

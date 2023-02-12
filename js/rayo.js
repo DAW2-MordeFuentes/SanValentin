@@ -41,7 +41,7 @@ function rayos() {
     */
 
 
-    fondo();
+    fondoFINAL();
     // txell, tormenta Miguel
     bolaBoleadora(true, "rayo")
     rayo(50);
@@ -76,7 +76,7 @@ function rayo(fps) {
     // Lanzar el rayo
     launchBolt = function (x, y, length, direction) {
             
-        if (tiempoRayos > 5) {
+        if (tiempoRayos > duracionRayosGato) {
             clearInterval(pararRayos)
             clearInterval(stoping)
             rain();
@@ -162,7 +162,7 @@ function rayo(fps) {
         ctx.clearRect(0, 0, w, h);
 
         //Fondo Acuña
-        fondo()
+        fondoFINAL()
         // txell, tormenta miguel
         bolaBoleadora(true, "drawRayo")
 
@@ -209,7 +209,7 @@ function rayo(fps) {
                 //fondo();
                 //nubes();
                 // michoPsPs(maxRayo / 2 - (maxRayo / 15), h - (h / 25));
-                michoPsPs(minRayo + 10 * unit, h - (h / 25));
+                // michoPsPs(minRayo + 10 * unit, h - (h / 25));
             }
         }
         /*if (apareceGato){
