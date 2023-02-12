@@ -23,6 +23,8 @@ function dibujar() {
         canvas.style.width = "40vh"
         canvas.style.height = "40vh"
         // alert("changed")
+        document.getElementById("cat").style.width = "40vh"
+        document.getElementById("cat").style.height = "40vh"
     }
 
     w = canvas.clientWidth
