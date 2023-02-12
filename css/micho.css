@@ -1,0 +1,22 @@
+body {
+    background-color: #dce1e5;
+    /* background-color: black; */
+}
+
+canvas {
+    border: 10px solid white;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+    width:  0vh;
+    height: 90vh;
+}
+
+#cat {
+    display: block;
+}
+
+#number {
+    font-size: 50px;
+    color: #434343;
+}
