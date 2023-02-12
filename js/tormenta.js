@@ -118,7 +118,7 @@ function bolaBoleadora(fija, llamada) {
             // console.log("VEEETEEE " + posX)
             clearInterval(ySeMarcho)
             // drawHearts(posChunga - 12*unit)
-            setInterval(drawHeart, 1000, posChunga - 12*unit)
+            intervalCorazones = setInterval(drawHeart, 1000, posChunga - 12*unit)
         }
 
         // console.log(posXX - posX)

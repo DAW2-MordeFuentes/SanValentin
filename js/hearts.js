@@ -2,6 +2,8 @@
 ///3 de febrero 2023
 ////Diseño de Interfaces Web
 
+let intervalCorazones;
+
 function corazones(heartScale, colour, posX, x, y, phrase) {
     //'Ramas'
     ctx.beginPath()
@@ -31,7 +33,7 @@ function corazones(heartScale, colour, posX, x, y, phrase) {
     let cTextX = heartScale * (unit * 5) + x + posX
     let cTextY = heartScale * (h - unit * 10.5) + y
 
-   
+
     //Líneas redondeadas
     ctx.lineCap = "round"
     ctx.lineWidth = (heartScale * (unit * 1.5))
@@ -53,7 +55,7 @@ function corazones(heartScale, colour, posX, x, y, phrase) {
 
     ctx.stroke()
     ctx.closePath()
-    
+
 
     //Escribir frase
     ctx.beginPath()
@@ -62,33 +64,68 @@ function corazones(heartScale, colour, posX, x, y, phrase) {
     innerText = canvasId.innerHTML = phrase
     ctx.fillStyle = "white"
     ctx.textAlign = 'center'
-    ctx.font = "bold " + (heartScale * 20/40 * unit) + "px 'Century Gothic'"
+    ctx.font = "bold " + (heartScale * 10 / 40 * unit) + "px 'Century Gothic'"
     // ctx.fillText(innerText, ((heartScale * (unit * 4.25) + x) + posX), ((heartScale * (h - unit * 10.25)) + y))
-    ctx.fillText(innerText, cTextX, cTextY)
+
+    // ctx.fillText(phrase, cTextX, cTextY)
+    ajusteDeTexto(innerText, cTextX, cTextY, heartScale*unit*3, heartScale * 10 / 40 * unit)
+    
     ctx.closePath()
 
     //grow()
 }
 
-let indexHeart = 0; 
+let indexHeart = 0;
 function drawHeart(posicionCorazones) {
     var positionX = posicionCorazones
-    indexHeart++;
     // Todas las llamadas...
     // for (let i = 0; i < 20; i++) {
-        var scale = Math.random() * 2 + 0.75
-        // var scale = 2.75
-        // var x = Math.random() * (70 - 200)
-        var y = Math.random() * (300 - 700)
-        // Math.random() * (max - min) + min;
-        var x = Math.random() * (unit*7 + unit*4) - unit*4
-        // var y = Math.random() * (-unit*4 - unit*10) - unit*10
-        var randomColour = Math.round(Math.random() * 5)
-        var randomPhrase = Math.round(Math.random() * 2)
-        corazones(scale, colors[randomColour], positionX, x, y, phrases[indexHeart])
+    var scale = Math.random() * 2 + 0.75
+    // var scale = 2.75
+    // var x = Math.random() * (70 - 200)
+    var y = Math.random() * (300 - 700)
+    // Math.random() * (max - min) + min;
+    var x = Math.random() * (unit * 7 + unit * 4) - unit * 4
+    // var y = Math.random() * (-unit*4 - unit*10) - unit*10
+    var randomColour = Math.round(Math.random() * colors.length)
+    var randomPhrase = Math.round(Math.random() * 2)
+    corazones(scale, colors[randomColour], positionX, x, y, phrases[indexHeart])
     // }
+    indexHeart++;
+
+    console.log(indexHeart + " - " + phrases.length)
+    if(indexHeart>phrases.length-1){
+        clearInterval(intervalCorazones)
+        setTimeout(() => {
+            lastInterval = setInterval(final, 50)    
+        }, 5000);
+    }
 }
 
+function ajusteDeTexto(texto, x, y, maxWidth, alturaDeLinea) {
+    let palabras = texto.split(" ");
+    let lineaDeTexto = "";
+    
+    for (let i = 0; i < palabras.length; i++) {
+        let testTexto = lineaDeTexto + palabras[i] + " ";
+        // calcula la anchura del texto textWidth 
+        let textWidth = ctx.measureText(testTexto).width;
+        
+        if (textWidth > maxWidth && i > 0) {
+            // escribe en el canvas la lineaDeTexto
+            ctx.fillText(lineaDeTexto, x, y);
+            // inicia otra lineaDeTexto         
+            lineaDeTexto = palabras[i] + " ";
+            // incrementa el valor de la variable y 
+            //donde empieza la nueva lineaDeTexto
+            y += alturaDeLinea;
+        } else {// de lo contrario,  si textWidth <= maxWidth 
+            lineaDeTexto = testTexto;
+        }
+    }// acaba el bucle for
+    // escribe en el canvas la última lineaDeTexto
+    ctx.fillText(lineaDeTexto, x, y);
+}
 
 
 /*
@@ -110,44 +147,16 @@ function dibujar() {
     /*var cat = document.getElementById("sourceCat")
     // ctx.drawImage(cat, 45, 650, 150, 150);*/
 
-    // Todas las llamadas...
-    /*for (let i = 0; i < 4; i++) {
-        var scale = Math.random() * 2 + 0.75
-        var x = Math.random() * (70 - 200)
-        var y = Math.random() * (300 - 700)
-        var randomColour = Math.round(Math.random() * 5)
-        var randomPhrase = Math.round(Math.random() * 2)
-        corazones(scale, colors[randomColour], positionX, x, y, phrases[i])
-    }
-    rejilla()
+// Todas las llamadas...
+/*for (let i = 0; i < 4; i++) {
+    var scale = Math.random() * 2 + 0.75
+    var x = Math.random() * (70 - 200)
+    var y = Math.random() * (300 - 700)
+    var randomColour = Math.round(Math.random() * 5)
+    var randomPhrase = Math.round(Math.random() * 2)
+    corazones(scale, colors[randomColour], positionX, x, y, phrases[i])
+}
+rejilla()
 }
 window.onload = dibujar
 */
-
-
-function ajusteDeTexto(texto, x, y, maxWidth, alturaDeLinea){
-    // crea el array de las palabras del texto
-    let palabrasRy = texto.split(" ");
-    // inicia la variable var lineaDeTexto
-    let lineaDeTexto = "";
-    // un bucle for recorre todas las palabras
-            for(let i = 0; i < palabrasRy.length; i++) {
-            let testTexto = lineaDeTexto + palabrasRy[i] + " ";
-            // calcula la anchura del texto textWidth 
-            let textWidth = ctx.measureText(testTexto).width;
-            // si textWidth > maxWidth
-                    if (textWidth > maxWidth  && i > 0) {
-                    // escribe en el canvas la lineaDeTexto
-                    ctx.fillText(lineaDeTexto, x, y);
-                    // inicia otra lineaDeTexto         
-                    lineaDeTexto = palabrasRy[i]+ " " ;
-                    // incrementa el valor de la variable y 
-                    //donde empieza la nueva lineaDeTexto
-                    y += alturaDeLinea;
-                    }else {// de lo contrario,  si textWidth <= maxWidth 
-                    lineaDeTexto = testTexto;
-                    }
-            }// acaba el bucle for
-    // escribe en el canvas la última lineaDeTexto
-    ctx.fillText(lineaDeTexto, x, y);
-}

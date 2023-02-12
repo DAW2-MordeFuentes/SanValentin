@@ -102,12 +102,9 @@ const colors = ["#B9F3E4", "#EA8FEA", "#D61355", "#F94A29", "#30E3DF", "#FD8A8A"
                 "#53BF9D", "#BD4291", "#293462", "#F24C4C", "#FF6FB5", "#AB46D2", "#B4FF9F", 
                 "#FF6B6B", "#9ADCFF", "#95DAC1", "#6F69AC", "#FF4848", "#AA2EE6", "#890596"]
 
-//const phrases = ['Que te deje \ncrear un server de minecraft', 'Amor = ESPAÑA', 'Amistad', 'Cariño ', 
-                //'El amor es confianza y respeto', 'Lealtad ', ' Preocupación', 'Amarse', 'Sentirse comod@ con la otra persona', 
-                //'Quererse con el corazón', 'Que no sea toxic@']
-
-const phrases = ['Que te deje crear un server de minecraft']
-
+const phrases = ['Que te deje crear un server de minecraft', 'Amor = ESPAÑA', 'Amistad', 'Cariño ', 
+                'El amor es confianza y respeto', 'Lealtad ', ' Preocupación', 'Amarse', 'Sentirse comod@ con la otra persona', 
+                'Quererse con el corazón', 'Que no sea toxic@']
 
 var acX = new Array();
 var acY = new Array();

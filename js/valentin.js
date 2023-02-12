@@ -19,12 +19,22 @@ function dibujar() {
     ctx = canvas.getContext("2d")
     ctx.globalAlpha = 0.5
 
+    if (screen.width < 700) {
+        canvas.style.width = "40vh"
+        canvas.style.height = "40vh"
+        // alert("changed")
+    }
+
     w = canvas.clientWidth
     h = canvas.clientHeight
     unit = h * 0.05
 
     canvas.width = w
     canvas.height = h
+
+    // alert(screen.width)
+    // alert(h)
+
 
     posFINAL = 150 * unit
 
@@ -48,7 +58,7 @@ function dibujar() {
     // rayos()
 
     // for (let i = 0; i < 5; i++) {
-        // setInterval(drawHeart, 1000, 0)
+        intervalCorazones = setInterval(drawHeart, 1000, 0)
     // }
 
     // lastInterval = setInterval(final, 50)

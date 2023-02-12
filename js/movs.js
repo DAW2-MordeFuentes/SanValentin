@@ -29,7 +29,7 @@ function drawTractor() {
 let timeTractor;
 
 setTimeout(() => {
-    timeTractor = setInterval(drawTractor, vTractor);
+    // timeTractor = setInterval(drawTractor, vTractor);
 }, 50)
 
 
