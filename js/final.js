@@ -23,7 +23,7 @@ function corazon(r, paso) {
 function final() {
     scale += 1;
 
-    cx = w / 2,
+    cx = posFINAL;
     cy = h / 2;
 
     ctx.lineWidth = 4/40*unit;
@@ -46,8 +46,8 @@ function final() {
     ctx.fillStyle = 'white'
     ctx.textAlign = 'center'
     ctx.font = "bold " + (scale * 0.01 * unit) + "px 'Century Gothic'"
-    ctx.fillText("FELIZ", w/2, h/2)
-    ctx.fillText("SAN VALENTÍN", w/2, h/2+unit*2)
+    ctx.fillText("FELIZ", posFINAL, h/2)
+    ctx.fillText("SAN VALENTÍN", posFINAL, h/2+unit*2)
 
     if(scale>2*unit)
         clearInterval(lastInterval)
