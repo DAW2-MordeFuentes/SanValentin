@@ -1,5 +1,4 @@
 
-
 function suelo0(posX) {
     ctx.fillStyle = "#8ec416";
     ctx.strokeStyle = 'white';
@@ -77,10 +76,11 @@ function suelo3(posX) {
 }
 
 function nubes() {
-
+    // console.log("NUBES")
     ctx.fillStyle = "#fafafa";
-    for (i = 0; i < posFINAL - unit*30; i += 20 * unit) {
+    for (let i = 0; i < posFINAL - unit*30; i += 20 * unit) {
         // let random= Math.floor(Math.random()* 120);
+        // console.log(i)
         ctx.beginPath();
         ctx.arc(10 + i, aNubes0[i], 80, 0, Math.PI * 2, true);
         ctx.fill();
@@ -103,7 +103,7 @@ function nubes() {
 
     ctx.beginPath();
     ctx.fillStyle = "#fafafa";
-    for (i = 10 * unit; i < posFINAL - unit*20; i += 20 * unit) {
+    for (let i = 10 * unit; i < posFINAL - unit*20; i += 20 * unit) {
         // let random= Math.floor(Math.random()* 500);
         ctx.beginPath();
         ctx.arc(10 + i, aNubes[i], 80, 0, Math.PI * 2, true);
@@ -271,10 +271,10 @@ function fondo() {
     ctx.fillStyle = grdSky
     ctx.fillRect(0, 0, posFINAL + 20 * unit, h); // Si no, en el teléfono se ve mal
 
+    nubes()
     suelo0(0)
     tree1()
     suelo1(0)
-    nubes()
     tree0()
     suelo3(0)
     suelo2(0)
