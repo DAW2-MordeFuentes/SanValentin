@@ -75,65 +75,66 @@ function suelo3(posX) {
     ctx.closePath();
 }
 
-function nubes() {
-    // console.log("NUBES")
+function nubecillas() {
     ctx.fillStyle = "#fafafa";
-    for (let i = 0; i < posFINAL - unit*30; i += 20 * unit) {
+    let jo = 0;
+    for (let i = 0; i < posFINAL - unit*30; i += 22 * unit) {
         // let random= Math.floor(Math.random()* 120);
-        // console.log(i)
         ctx.beginPath();
-        ctx.arc(10 + i, aNubes0[i], 80, 0, Math.PI * 2, true);
+        ctx.arc(10/40*unit + i, aNubes0[jo], 80/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(88 + i, aNubes0[i] + 20, 46, 0, Math.PI * 2, true);
+        ctx.arc(88/40*unit + i, aNubes0[jo] + 20/40*unit, 46/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(142 + i, aNubes0[i] - 1, 30, 0, Math.PI * 2, true);
+        ctx.arc(142/40*unit + i, aNubes0[jo] - 1/40*unit, 30/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(200 + i, aNubes0[i] + 10, 62, 0, Math.PI * 2, true);
+        ctx.arc(200/40*unit + i, aNubes0[jo] + 10/40*unit, 62/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(142 + i, aNubes0[i] + 40, 25, 0, Math.PI * 2, true);
-        ctx.fill();
+        ctx.arc(142/40*unit + i, aNubes0[jo] + 40/40*unit, 25/40*unit, 0, Math.PI * 2, true);
+        ctx.fill();        
         ctx.beginPath();
-        ctx.arc(265 + i, aNubes0[i], 44, 0, Math.PI * 2, true);
+        ctx.arc(265/40*unit + i, aNubes0[jo], 44/40*unit, 0, Math.PI * 2, true);
+        jo++;
     }
-    ctx.closePath();
 
+    jo = 0;
     ctx.beginPath();
     ctx.fillStyle = "#fafafa";
     for (let i = 10 * unit; i < posFINAL - unit*20; i += 20 * unit) {
         // let random= Math.floor(Math.random()* 500);
         ctx.beginPath();
-        ctx.arc(10 + i, aNubes[i], 80, 0, Math.PI * 2, true);
+        ctx.arc(10/40*unit + i, aNubes[jo], 80/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(88 + i, aNubes[i] + 20, 46, 0, Math.PI * 2, true);
+        ctx.arc(88/40*unit + i, aNubes[jo] + 20/40*unit, 46/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(142 + i, aNubes[i] - 1, 30, 0, Math.PI * 2, true);
+        ctx.arc(142/40*unit + i, aNubes[jo] - 1/40*unit, 30/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(200 + i, aNubes[i] + 10, 62, 0, Math.PI * 2, true);
+        ctx.arc(200/40*unit + i, aNubes[jo] + 10/40*unit, 62/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(142 + i, aNubes[i] + 40, 25, 0, Math.PI * 2, true);
+        ctx.arc(142/40*unit + i, aNubes[jo] + 40/40*unit, 25/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(265 + i, aNubes[i], 44, 0, Math.PI * 2, true);
+        ctx.arc(265/40*unit + i, aNubes[jo], 44/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(265 + i, aNubes[i], 44, 0, Math.PI * 2, true);
+        ctx.arc(265/40*unit + i, aNubes[jo], 44/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(315 + i, aNubes[i], 23, 0, Math.PI * 2, true);
+        ctx.arc(315/40*unit + i, aNubes[jo], 23/40*unit, 0, Math.PI * 2, true);
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(380 + i, aNubes[i], 50, 0, Math.PI * 2, true);
+        ctx.arc(380/40*unit + i, aNubes[jo], 50/40*unit, 0, Math.PI * 2, true);
+        jo++;
     }
-    ctx.fill();
-    ctx.closePath();
+    //ctx.fill();
+    //ctx.closePath();
 }
 
 function tree1(posX) {
@@ -271,7 +272,7 @@ function fondo() {
     ctx.fillStyle = grdSky
     ctx.fillRect(0, 0, posFINAL + 20 * unit, h); // Si no, en el teléfono se ve mal
 
-    nubes()
+    nubecillas()
     suelo0(0)
     tree1()
     suelo1(0)
