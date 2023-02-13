@@ -108,7 +108,7 @@ function balloon(posX, posY) {
     //Enlace azul clarito 
     ctx.beginPath();
     ctx.strokeStyle = "#0392d7";
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 8/40*unit;
 
     ctx.moveTo(posX +unit * 9.4,posY + unit * 14.9);
     ctx.lineTo(posX +unit * 12.6,posY + unit * 14.9);
@@ -119,14 +119,14 @@ function balloon(posX, posY) {
     //Curva de la cuerda IZQ
     ctx.beginPath();
     ctx.fillStyle = "#0392d7";
-    ctx.arc(posX +unit * 9.4,posY + unit * 14.9, 2, 0, Math.PI * 2, true);
+    ctx.arc(posX +unit * 9.4,posY + unit * 14.9, 3, 0, Math.PI * 2, true);
     ctx.fill();
     ctx.closePath();
     ctx.restore();
     //Curva de la cuerda derecha
     ctx.beginPath();
     ctx.fillStyle = "#0392d7";
-    ctx.arc(posX +unit * 12.6, posY +unit * 14.9, 2, 0, Math.PI * 2, true);
+    ctx.arc(posX +unit * 12.6, posY +unit * 14.9, 3, 0, Math.PI * 2, true);
     ctx.fill();
     ctx.closePath();
     ctx.restore();

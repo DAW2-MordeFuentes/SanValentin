@@ -1,4 +1,4 @@
-var duracionRayosGato = 5
+var duracionRayosGato = 25
 
 var posFINAL = 0
 var limit = 0
@@ -97,14 +97,23 @@ function rejilla() {
 }
 
 // const colors = ["#f33e75", "#f294ae", "#b8439b", "#ef582e", "#47c0c8", "#f12b33"]
-const colors = ["#B9F3E4", "#EA8FEA", "#D61355", "#F94A29", "#30E3DF", "#FD8A8A", "#9EA1D4", 
+const colors = ["#EA8FEA", "#D61355", "#F94A29", "#30E3DF", "#FD8A8A", "#9EA1D4", 
                 "#FF9E9E", "#FF6D28", "#00F5FF", "#F94892", "#89CFFD", "#B2A4FF", "#F94C66", 
-                "#53BF9D", "#BD4291", "#293462", "#F24C4C", "#FF6FB5", "#AB46D2", "#B4FF9F", 
-                "#FF6B6B", "#9ADCFF", "#95DAC1", "#6F69AC", "#FF4848", "#AA2EE6", "#890596"]
+                "#53BF9D", "#BD4291", "#293462", "#F24C4C", "#FF6FB5", "#AB46D2", 
+                "#FF6B6B", "#9ADCFF", "#0087FF", "#6F69AC", "#FF4848", "#AA2EE6", "#890596"]
 
-const phrases = ['Que te deje crear un server de minecraft', 'Amor = ESPAÑA', 'Amistad', 'Cariño ', 
-                'El amor es confianza y respeto', 'Lealtad ', ' Preocupación', 'Amarse', 'Sentirse comod@ con la otra persona', 
-                'Quererse con el corazón', 'Que no sea toxic@']
+var phrases = ['Que te deje crear un server de minecraft', 'Amistad', 'Cariño ', 
+                'El amor es confianza y respeto', 'Lealtad ', ' Preocupación', 'Amarse', 
+                'Sentirse cómod@ con la otra persona', 'Quererse con el corazón', 
+                'Que no sea tóxic@', 'Mientras estés al lado mío soy feliz', 
+                'Mirarte era soplar velas teniendo el deseo enfrente',
+                'El amor es querer a alguien con el corazón', 
+                'Sí es amor cuando te apoya y te da libertad', 
+                'Me he enamorado cientos de veces, ¡Todas de mi!', 
+                'Respetarl@ y quererl@ '];
+
+phrases = frases.sort(function () { return Math.random() - 0.5 });
+
 
 var acX = new Array();
 var acY = new Array();
@@ -116,3 +125,5 @@ var aPaArriba = new Array();
 var aAlturaCartel = new Array();
 var aLadoDerecho = new Array();
 
+var aNubes0 = new Array();
+var aNubes = new Array();

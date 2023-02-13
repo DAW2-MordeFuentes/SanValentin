@@ -1,11 +1,4 @@
 
-
-//variables globales
-/*let azultormenta= '#102c54';
-let minRayo=unit;
-let maxRayo=unit*40;
-let finalNube=unit*2;*/
-
 var pararRayos;
 
 function rayos() {
@@ -13,37 +6,15 @@ function rayos() {
     ctx.fillStyle = "rgb(10, 10, 10)"
     ctx.fillRect(0, 0, w, h);
 
-    // minRayo = limit + w/2
-    // maxRayo = limit + 30*unit + w/2
-    // maxRayo = limit + 22*unit
+    minRayo = posFINAL - w / 1.5
+    maxRayo = posFINAL + w / 1.5
 
-
-    // minRayo = posFINAL - 10 * unit
-    // maxRayo = minRayo + 20 * unit
-
-    minRayo = posFINAL - limit
-    maxRayo = minRayo + 40*unit
-
-    // minRayo = 0
-    // maxRayo = 22 * unit
-
-    // alert("MIN " + minRayo)
-    // alert("MAX " + maxRayo)
-
-    /*
-    ctx.beginPath()
-    ctx.fillStyle = "red"
-    ctx.fillRect(minRayo, 0, maxRayo-minRayo, h)
-
-    ctx.beginPath()
-    ctx.fillStyle = "yellow"
-    ctx.fillRect(minRayo, 0, maxRayo - minRayo, h)
-    */
-
-
-    fondoFINAL();
+    // console.log("MINRAYO - " + minRayo)
+    // console.log("MAXRAYO - " + maxRayo)
+    
+    // fondoFINAL();
     // txell, tormenta Miguel
-    bolaBoleadora(true, "rayo")
+    // bolaBoleadora(true, "rayo")
     rayo(50);
 }
 
@@ -59,7 +30,7 @@ function rayo(fps) {
     lastFrame = (new Date()).getTime();
 
     boltFlashDuration = 1.25;
-    boltFadeDuration = 1.5;
+    boltFadeDuration = 0.5; //1.5
     totalBoltDuration = boltFlashDuration + boltFadeDuration;
 
     bolts = [];
@@ -75,11 +46,13 @@ function rayo(fps) {
 
     // Lanzar el rayo
     launchBolt = function (x, y, length, direction) {
-            
+        // console.log("LAUNCH -- " + x)
         if (tiempoRayos > duracionRayosGato) {
             clearInterval(pararRayos)
             clearInterval(stoping)
-            rain();
+            setTimeout(() => {
+                rain();
+            }, 1000)            
         }
 
         var boltCanvas, boltContext;
@@ -87,7 +60,8 @@ function rayo(fps) {
 
         //cambiar tamaño de los rayos acuña
         //boltCanvas.width= unit*20;
-        boltCanvas.width = window.innerWidth;
+        // boltCanvas.width = window.innerWidth;
+        boltCanvas.width = posFINAL + w/1.5;
         boltCanvas.height = window.innerHeight;
         boltContext = boltCanvas.getContext("2d");
         boltContext.scale(scale, scale);
@@ -119,12 +93,14 @@ function rayo(fps) {
                 x1 = Math.floor(x);
                 y1 = Math.floor(y);
 
+
                 x += Math.cos(direction);
                 y -= Math.sin(direction);
                 length--;
                 if (x1 !== Math.floor(x) || y1 !== Math.floor(y)) {
                     alpha = Math.min(1, length / 350);
                     boltContext.fillStyle = "white";
+
                     boltContext.fillRect(x1, y1, 4, 4);
 
                     direction = originalDirection + (-Math.PI / 8 + Math.random() * (Math.PI / 4));
@@ -169,20 +145,13 @@ function rayo(fps) {
         // Disparar RAYO.
         if (Math.random() > 0.98) {
             //Cambiar tamaño ACUÑA
-            // x = Math.floor(-10 + Math.random() * (width + 20));
-            x = Math.floor(Math.random() * maxRayo) + minRayo;
-            // x=Math.floor(minRayo * (maxRayo + 20));
-
-            // console.log("XXXX - " + x)
-            /*  y = Math.floor(5 + Math.random() * (height / 3));
-              length = Math.floor(height / 2 + Math.random() * (height / 3));*/
-
-            y = 0;
+            x = Math.floor(Math.random() * (maxRayo - minRayo)) + minRayo;
+            // acuña
+            y = unit*6;
             length = Math.floor(height / 2 + Math.random() * (height / 3));
-            // acuña donde lanza el rayo
 
             // Mira de cuadrar la y....
-            if (y == 0) {
+            if (y == unit*6) {
                 launchBolt(x, y, length, Math.PI * 3 / 2);
             }
         }
@@ -200,29 +169,26 @@ function rayo(fps) {
                 return;
             }
 
-            document.getElementById('canvas').style.opacity = Math.max(0.1, Math.min(1, (totalBoltDuration - bolt.duration) / boltFadeDuration));
-            //ctx.globalAlpha = Math.max(0, Math.min(1, (totalBoltDuration - bolt.duration) / boltFadeDuration));
-            ctx.drawImage(bolt.canvas, 0, 0);
+            document.getElementById('canvas').style.opacity = Math.max(0.03, Math.min(1, (totalBoltDuration - bolt.duration) / boltFadeDuration));
 
             //Artal: if aparece gato pues gato aparece
             if (apareceGato) {
-                //fondo();
-                //nubes();
+                // fondo();
+                ctx.drawImage(bolt.canvas, 0, 0);
                 // michoPsPs(maxRayo / 2 - (maxRayo / 15), h - (h / 25));
-                // michoPsPs(minRayo + 10 * unit, h - (h / 25));
+                michoPsPs(mediaRayo, h - (h / 25));
+            } else {
+                ctx.drawImage(bolt.canvas, 0, 0);
             }
         }
-        /*if (apareceGato){
-            ctx.beginPath();
-            staringCat(maxRayo / 2 - (maxRayo / 15), h - (h / 25));
-            ctx.closePath();
-        }*/
+
         // Artal: solo si ha pasado por el rayo al menos una vez
         if (catCalling) {
             if (bolts.length == 0) {
                 apareceGato = true;
             };
         }
+
         return void 0;
     };
 

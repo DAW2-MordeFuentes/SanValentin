@@ -9,7 +9,8 @@ var grdSky;
 var tiempoRayos = 0;
 var stoping;
 
-var lastInterval;
+var lastInterval; 
+var timeMiguel = 98;
 
 
 function dibujar() {
@@ -34,10 +35,6 @@ function dibujar() {
     canvas.width = w
     canvas.height = h
 
-    // alert(screen.width)
-    // alert(h)
-
-
     posFINAL = 150 * unit
 
     yGlobo = -unit * 1.2
@@ -50,20 +47,8 @@ function dibujar() {
 
     xTractor = -10 * unit;
 
-    // michoPsPs(200, h-(h/30));
-    // staringCat(200, h-(h/30));
-    // rayos();
-    rejilla()
     fondo()
 
-    // ctx.translate(-1000, 0)
-    // rayos()
-
-    // for (let i = 0; i < 5; i++) {
-        // intervalCorazones = setInterval(drawHeart, 1000, 0)
-    // }
-
-    // lastInterval = setInterval(final, 50)
 }
 
 function inicializarFlores() {
@@ -72,11 +57,6 @@ function inicializarFlores() {
     let minX = unit * 20
     let maxY = h - unit * 4
     let minY = h - unit * 5
-
-    // define an array of colors
-    // var colorArray = ["red", "blueviolet", "blue", "coral", "goldenrod", "greenyellow", "purple", "darkorange", "hotpink",
-    // "maroon", "salmon", "white"];
-
 
     for (let i = 0; i < numFlowers; i++) {
         var centerX = Math.random() * maxX + minX
@@ -106,6 +86,19 @@ function inicializarFlores() {
         aPaArriba.push(paArriba)
         aAlturaCartel.push(alturaCartel)
         aLadoDerecho.push(ladoDerecho)
+    }
+
+    nubesArray()
+}
+
+function nubesArray() {
+    for (i = 0; i < posFINAL - 10*unit; i++) {
+        let random = Math.floor(Math.random()* 500);
+        aNubes.push(random);
+    }
+    for (i = 0; i < posFINAL - 10*unit; i++) {
+        let random = Math.floor(Math.random()* 120);
+        aNubes0.push(random);
     }
 }
 

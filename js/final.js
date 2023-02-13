@@ -28,7 +28,7 @@ function final() {
 
     ctx.lineWidth = 4/40*unit;
     ctx.strokeStyle = black;
-    ctx.fillStyle = red;
+    ctx.fillStyle = "crimson";
 
     // crea un array vacío para guardar los puntos
     let puntos = corazon(scale, 0.05);
@@ -42,12 +42,13 @@ function final() {
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
-
+/* 
+F94C66*/
     ctx.fillStyle = 'white'
     ctx.textAlign = 'center'
     ctx.font = "bold " + (scale * 0.01 * unit) + "px 'Century Gothic'"
-    ctx.fillText("FELIZ", posFINAL, h/2)
-    ctx.fillText("SAN VALENTÍN", posFINAL, h/2+unit*2)
+    ctx.fillText("VIVE EL AMOR", posFINAL - unit, h/2)
+    ctx.fillText("A TU MANERA", posFINAL - unit, h/2+unit*2)
 
     if(scale>2*unit)
         clearInterval(lastInterval)

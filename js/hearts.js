@@ -64,11 +64,11 @@ function corazones(heartScale, colour, posX, x, y, phrase) {
     innerText = canvasId.innerHTML = phrase
     ctx.fillStyle = "white"
     ctx.textAlign = 'center'
-    ctx.font = "bold " + (heartScale * 10 / 40 * unit) + "px 'Century Gothic'"
+    ctx.font = "bold " + (heartScale * 12 / 40 * unit) + "px 'Century Gothic'"
     // ctx.fillText(innerText, ((heartScale * (unit * 4.25) + x) + posX), ((heartScale * (h - unit * 10.25)) + y))
 
     // ctx.fillText(phrase, cTextX, cTextY)
-    ajusteDeTexto(innerText, cTextX, cTextY, heartScale*unit*3, heartScale * 10 / 40 * unit)
+    ajusteDeTexto(innerText, cTextX, cTextY, heartScale*unit*3, heartScale * 12 / 40 * unit)
     
     ctx.closePath()
 
@@ -80,10 +80,10 @@ function drawHeart(posicionCorazones) {
     var positionX = posicionCorazones
     // Todas las llamadas...
     // for (let i = 0; i < 20; i++) {
-    var scale = Math.random() * 2 + 0.75
-    // var scale = 2.75
+    // var scale = Math.random() * 2 + 0.75
+    var scale = (Math.random() * (1.7 - 1.1)) + 1.1
     // var x = Math.random() * (70 - 200)
-    var y = Math.random() * (300 - 700)
+    var y = Math.random() * (10 - 15)
     // Math.random() * (max - min) + min;
     var x = Math.random() * (unit * 7 + unit * 4) - unit * 4
     // var y = Math.random() * (-unit*4 - unit*10) - unit*10
@@ -91,9 +91,10 @@ function drawHeart(posicionCorazones) {
     var randomPhrase = Math.round(Math.random() * 2)
     corazones(scale, colors[randomColour], positionX, x, y, phrases[indexHeart])
     // }
+
     indexHeart++;
 
-    console.log(indexHeart + " - " + phrases.length)
+    // console.log(indexHeart + " - " + phrases.length)
     if(indexHeart>phrases.length-1){
         clearInterval(intervalCorazones)
         setTimeout(() => {

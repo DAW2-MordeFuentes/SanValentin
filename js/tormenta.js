@@ -20,8 +20,8 @@ var vete = 0;
 // var vel1 = 0.00905
 // var vel2 =  0.009
 
-var vel1 = 0.0905
-var vel2 = 0.09
+var vel1 = 0.0405
+var vel2 = 0.04
 
 var ySeMarcho, paraLluvia, boleadora;
 
@@ -1048,7 +1048,8 @@ function rain() {
             this.y = getRandomNumber(5 * unit, 7.4 * unit);
             this.speedX = getRandomNumber(-4, 4) / 5;
             this.speedY = getRandomNumber(1, 5);
-            this.cont = 5;
+            // gaytan
+            this.cont = 3;
             num++;
         }
         reset = () => {
@@ -1086,7 +1087,8 @@ function rain() {
                 ctx.fill();
                 ctx.closePath();
             }
-            if (num == 300) {
+            //gaytan
+            if (num == 200) {
                 vete = 1;
                 clearInterval(paraLluvia)
             } 
@@ -1117,5 +1119,5 @@ function rain() {
 setTimeout(() => {
     // console.log("Y SE MARCHOOOOOOOOOOO")
     ySeMarcho = setInterval(bolaBoleadora, 1, false, "MARCHO")
-}, 60 * 1000)
+}, timeMiguel * 1000)
 

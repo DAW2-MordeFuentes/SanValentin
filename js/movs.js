@@ -1,12 +1,13 @@
 let xTractor = -100;
 let dxTractor = 5;
 let yTractor = -50;
-let vTractor = 5;// 50 - es inversamente proporcional
+let vTractor = 30;// 50 - es inversamente proporcional
 
 let yGlobo;
 let xGlobo = 0;
 let dyGlobo = 10;
-let dxGlobo = 17;
+//let dxGlobo = 17;
+let dxGlobo = 8.5;
 let vGlobo = 50;
 
 let timeGlobo, timeFondo, lluviaGaytan, lluvia2Gaytan;
@@ -57,16 +58,16 @@ function drawFondo() {
     balloon(xGlobo, yGlobo);
 
     if (xGlobo -200 > posFINAL) {
-        // console.log("LIMIT " + limit)
-        // console.log(posFINAL)
-
         clearInterval(timeFondo)
         tormenta()
+        // rayos()
     }
     else {
         xGlobo += dxGlobo
-        limit += 10;
-        ctx.translate(-15, 0)
+        // limit += 10;
+        // ctx.translate(-15, 0)
+        limit += 5;
+        ctx.translate(-7.5, 0)
         // console.log("LIMIT " + limit)
     }
 }
