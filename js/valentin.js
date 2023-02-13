@@ -10,7 +10,7 @@ var tiempoRayos = 0;
 var stoping;
 
 var lastInterval; 
-var timeMiguel = 98;
+var timeMiguel = 101;
 
 
 function dibujar() {
